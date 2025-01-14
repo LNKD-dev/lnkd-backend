@@ -22,7 +22,7 @@ jobs:
         options: --entrypoint=""
         volumes:
           - .:/app
-        command: >
+        env: >
           bash -c "pip install -r /app/requirements.txt && python /app/main.py"
 
 >>>>>>> f3da8c9 (added some backend functionallity with tests)
