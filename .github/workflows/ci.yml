@@ -29,4 +29,4 @@ jobs:
           nohup python main.py & sleep 5
 
       - name: Run integration tests
-        run: python integration_test.py
+        run: python tests/integration_test.py
