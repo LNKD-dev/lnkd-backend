@@ -12,25 +12,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-<<<<<<< HEAD
-=======
-    services:
-      flask:
-        image: python:3.10
-        ports:
-          - 5000:5000
-        options: --entrypoint=""
-        volumes:
-          - .:/app
-        env: >
-          bash -c "pip install -r /app/requirements.txt && python /app/main.py"
-
->>>>>>> f3da8c9 (added some backend functionallity with tests)
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
 
-<<<<<<< HEAD
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
@@ -46,20 +31,3 @@ jobs:
 
       - name: Run integration tests
         run: python integration_tests.py
-=======
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Wait for Flask Server
-        run: |
-          for i in {1..10}; do
-              curl -I localhost:5000 && break
-              echo "Waiting for Flask Server to start..."
-              sleep 1
-          done
-
-      - name: Run tests
-        run: |
-          pytest tests/
->>>>>>> f3da8c9 (added some backend functionallity with tests)
