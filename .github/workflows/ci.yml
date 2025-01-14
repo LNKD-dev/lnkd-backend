@@ -30,4 +30,4 @@ jobs:
           sleep 5
 
       - name: Run integration tests
-        run: python integration_tests.py
+        run: python integration_test.py
