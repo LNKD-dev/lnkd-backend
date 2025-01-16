@@ -37,5 +37,24 @@ class IntegrationTests(unittest.TestCase):
         data = response.json()
         self.assertIn("error", data)
 
+    def test_total_links_endpoint(self):
+        """Test the total links endpoint."""
+        response = requests.get(f"{BASE_URL}/stats/total_links")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("total_links", data)
+        self.assertIsInstance(data["total_links"], int)
+
+    def test_most_clicked_endpoint(self):
+        """Test the most clicked endpoint."""
+        response = requests.get(f"{BASE_URL}/stats/most_clicked")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("short_url", data)
+        self.assertIn("click_count", data)
+        self.assertIsInstance(data["short_url"], str)
+        self.assertIsInstance(data["click_count"], int)
+        
+
 if __name__ == "__main__":
     unittest.main()
